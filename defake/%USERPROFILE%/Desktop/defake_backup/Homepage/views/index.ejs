@@ -1,0 +1,88 @@
+<%- include('partials/header', { title: 'Home', isAuthenticated: isAuthenticated }) %>
+
+<section class="hero" id="home">
+  <h1>Expose the Fake. Trust the Real.</h1>
+</section>
+
+<section class="main-verification">
+ <h2 class="verify-text">Paste a news article or URL to check its authenticity</h2>
+ <div class="search-box">
+  <input type="text" id="newsInput" placeholder="Paste a news article or URL">
+
+  <div class="button-group">
+    <button id="checkButton">Check News</button>
+    <button id="clearButton" class="clear-btn">Clear</button>
+  </div>
+
+  <div id="loader" class="loader"></div>
+
+  <p id="verdictMessage"></p>
+  <div id="credibilityScore" class="credibility-score"></div>
+ </div>
+
+
+</section>
+
+<section class="highlights" id="features">
+  <h2>What Sets Us Apart</h2>
+  <div class="cards">
+    <% const features = [
+      { icon: "✅", title: "Trusted Sources", description: "We rely on a network of reputable sources to verify news accuracy. Our process includes partnerships with top fact-checking organizations and diverse, reliable data points." },
+      { icon: "⏱️", title: "Real-Time Updates", description: "Our platform continuously monitors developments, ensuring you receive the latest information as it happens." },
+      { icon: "📊", title: "Credibility Score", description: "Displays a score (e.g., 0-100) indicating the reliability of the news article, with an explanation of contributing factors." },
+      { icon: "🔔", title: "Personalized Alerts", description: "We send you timely email notifications about trending fake news stories relevant to your interests, helping you stay informed and vigilant." },
+      { icon: "🗣️", title: "Feedback Option", description: "Users can provide feedback or flag results if they think the response was incorrect, helping us improve." }
+    ]; %>
+    
+    <% features.forEach(feature => { %>
+      <div class="card">
+        <h3><%= feature.icon %> <%= feature.title %></h3>
+        <p><%= feature.description %></p>
+      </div>
+    <% }); %>
+  </div>
+</section>
+
+<section class="verdicts">
+  <h2>Recently Flagged News</h2>
+  <div class="verdict-tags">
+    <button>Trending</button>
+    <button>Fake News</button>
+    <button>View All</button>
+  </div>
+
+  <div class="verdict-cards">
+    <% const flaggedNews = [
+      { 
+        image: "https://images.unsplash.com/photo-1514065549995-7706f6017a27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDQzNzIyMTF8&ixlib=rb-4.0.3&q=80&w=400",
+        title: "Claim: Aliens spotted in London",
+        verdict: "FAKE",
+        explanation: "This image has been manipulated and verified as false by trusted sources."
+      },
+      { 
+        image: "https://images.unsplash.com/photo-1623682687938-515344908afe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDQzNzIyOTR8&ixlib=rb-4.0.3&q=80&w=400",
+        title: "Claim: COVID-19 vaccine alters DNA",
+        verdict: "FAKE",
+        explanation: "Scientific studies confirm no DNA alteration occurs through vaccination."
+      },
+      { 
+        image: "https://images.unsplash.com/photo-1567965178128-abb8d8532ae7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDQzNzIzNzR8&ixlib=rb-4.0.3&q=80&w=400",
+        title: "Claim: US Election was rigged",
+        verdict: "FAKE",
+        explanation: "No evidence supports widespread fraud in the 2020 US elections."
+      }
+    ]; %>
+    
+    <% flaggedNews.forEach(news => { %>
+      <div class="verdict-card">
+        <img src="<%= news.image %>" alt="<%= news.title %>">
+        <div class="card-body">
+          <h3><%= news.title %></h3>
+          <p><strong style="color:#DC2626;"><%= news.verdict %></strong> — <%= news.explanation %></p>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
