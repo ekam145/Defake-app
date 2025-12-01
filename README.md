@@ -1,267 +1,211 @@
-# 📰 **DeFake – Hybrid AI-Powered Fake News Detection System**
+# 🚨 DeFake – AI-Powered Fake News Detector
 
-DeFake is an advanced fake-news detection platform combining:
+### Identify misinformation instantly using NLP, sentiment analysis, and machine-learning.
 
-✅ **Node.js backend** for routing, UI rendering, authentication
-✅ **Flask AI backend** for hybrid text analysis
-• Transformers (HuggingFace)
-• Rule-based pattern checks
-• Sentiment + linguistic heuristics
-• Confidence scores + probability breakdown
+DeFake is a full-stack Fake News Detection system built with:
 
-This project provides **real-time prediction**, clean UI, confidence scoring, and a fallback mechanism when AI models are offline.
+* **Node.js (Frontend + Main Backend)**
+* **Flask (Python ML Microservice)**
+* **NLP Sentiment + Probability-Based Fake/Real Detection**
+* **Modern UI (clean, minimal, intuitive)**
 
----
-
-## 🚀 **Features**
-
-### 🔍 Accurate Fake-News Detection
-
-* Hybrid AI model combining:
-
-  * Transformers sentiment + credibility estimation
-  * Heuristics & linguistic analysis
-  * Rule-based detection
-  * External fact-check API support (optional)
-* Returns:
-
-  * **Prediction (Fake / Real)**
-  * **Confidence %**
-  * **Fake vs Real probability**
-  * **Explanation breakdown**
-
-### 🧠 Dual-Backend Architecture
-
-* **Node.js (Express)**
-
-  * Renders UI
-  * Handles user auth
-  * Acts as bridge between UI ↔ Flask
-* **Flask (Python)**
-
-  * Runs the hybrid AI model
-  * Provides `/api/analyze` endpoint
-  * Sends structured JSON to Node
-
-### 🧾 Authentication System
-
-* Register / Login
-* Hashed password storage using bcrypt
-* PostgreSQL database integration
-
-### 🖥 Modern UI
-
-* Clean analysis interface
-* Real-time result rendering
-* Probabilities and explanation shown visually
-* "Clear Input" option
-
-### ⚠️ Offline fallback
-
-If Flask API is down, Node.js automatically uses a **local heuristic model**.
+Users can paste news text or URLs, and the system returns:
+✔ Fake vs Real prediction
+✔ Confidence score
+✔ Fake/Real probability breakdown
+✔ Explanation (emotion, polarity, tone indicators)
 
 ---
 
-## 📂 **Project Structure**
+## 🌐 Live Demo (Optional)
+
+*(Add your Render/GitHub Pages/Netlify link here when deployed)*
+👉 `https://your-app-link.com`
+
+---
+
+# 📸 Screenshots
+
+### 🏠 Home – News Checker Interface
+
+Paste article text → click *Check* → get AI verification.
+
+![Home][(https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/screenshots/home.png](https://github.com/ekam145/Defake-app/blob/main/Screenshot%202025-12-02%20002103.png))
+
+---
+
+### 📊 Detection Result – Confidence Score Breakdown
+
+Real-time score + Fake/Real probabilities.
+
+![Result][(https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/screenshots/result.png](https://github.com/ekam145/Defake-app/blob/main/Screenshot%202025-12-02%20002103.png))
+
+---
+
+### ℹ️ About Page – App Story & Purpose
+
+![About]([https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/screenshots/about.png](https://github.com/ekam145/Defake-app/blob/main/Screenshot%202025-12-02%20002120.png))
+
+---
+
+### 🔐 Login & Register – Auth UI
+
+![Auth]([https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/screenshots/auth.png](https://github.com/ekam145/Defake-app/blob/main/Screenshot%202025-12-02%20003231.png))
+
+---
+
+# 🚀 Features
+
+### 🔍 Fake News Detection
+
+* Sentiment polarity + subjectivity
+* Emotion spike detection
+* Probability-based Fake/Real classification
+* Transformer/NLP-based analysis (backend)
+
+### ⚡ Full-stack Architecture
+
+* Node.js → User interface + routing
+* Flask → Text analysis ML API
+* Clean EJS templates
+* Modern CSS UI
+* Clear code structure
+
+### 💾 User Accounts (Optional)
+
+* Login / Register
+* Secure handling
+* Extendable for saving search history
+
+### 📱 Responsive UI
+
+* Works on mobile + desktop
+* Smooth transitions
+* Clear breakdown of results
+
+---
+
+# 🧠 Tech Stack
+
+| Layer      | Technology                 |
+| ---------- | -------------------------- |
+| Frontend   | HTML, CSS, EJS, JavaScript |
+| Backend    | Node.js + Express          |
+| ML Engine  | Python + Flask             |
+| NLP        | TextBlob + Transformers    |
+| Deployment | Render / GitHub / Netlify  |
+
+---
+
+# 📁 Project Structure
 
 ```
-DeFake/
-│── defake/                 # Node.js backend
-│   ├── views/              # EJS templates (UI)
-│   ├── public/             # CSS, JS, images
-│   ├── assets/             # UI assets
-│   ├── index.js            # Main Express server
-│   ├── package.json
-│
-│── flask_factcheck/        # Python AI backend
-│   ├── app.py              # Flask server + AI model
-│   ├── venv/               # Python virtual environment
-│   ├── requirements.txt
-│
-│── README.md               # Project documentation
-```
-
----
-
-## 🛠 **Tech Stack**
-
-### **Frontend**
-
-* HTML, CSS, JavaScript
-* EJS templates
-* Service Worker (optional offline caching)
-
-### **Backend**
-
-#### Node.js (Primary backend)
-
-* Express.js
-* EJS
-* PostgreSQL
-* Axios (to call Flask API)
-
-#### Python (AI backend)
-
-* Flask
-* TextBlob
-* Transformers (HuggingFace)
-* NLTK
-* Regex-based credibility rules
-
----
-
-## 🏗 **Installation & Setup**
-
-### 📌 Clone the repository
-
-```sh
-git clone https://github.com/ekam145/Defake-app.git
-cd Defake-app
+defake/
+│── Homepage/          # UI + Node.js backend
+│── flask_factcheck/   # Python ML microservice
+│── public/            # static assets
+│── views/             # EJS templates
+│── package.json
+│── app.py (Flask)
+│── index.js (Node)
 ```
 
 ---
 
-# ⚙️ **Node.js Setup**
+# 🛠 Installation
 
-```sh
-cd defake
+## 1️⃣ Clone the Repository
+
+```
+git clone https://github.com/ekam145/defake-app.git
+cd defake-app
+```
+
+---
+
+# 🟦 Node.js (Frontend + Backend)
+
+### Install dependencies:
+
+```
+cd Homepage
 npm install
 ```
 
-Create `.env` file (optional, if you store DB creds):
+### Start server:
 
-```env
-DB_USER=postgres
-DB_PASS=yourpassword
-DB_NAME=secrets
-DB_HOST=localhost
-DB_PORT=5432
 ```
-
-Run the Node server:
-
-```sh
 npm start
-```
-
-Server runs at:
-
-```
-http://localhost:3000
 ```
 
 ---
 
-# 🧬 **Flask (Python) Setup**
+# 🐍 Python ML Backend (Flask)
 
-```sh
+### Create venv:
+
+```
 cd flask_factcheck
 python -m venv venv
-venv\Scripts\activate      # Windows
+venv\Scripts\activate
+```
+
+### Install requirements:
+
+```
 pip install -r requirements.txt
 ```
 
-Run Flask:
+### Start Flask:
 
-```sh
+```
 python app.py
 ```
 
-Flask runs at:
+---
+
+# 🔗 Connecting Node ↔ Flask
+
+Node will call Flask automatically at:
 
 ```
-http://localhost:5000
+http://127.0.0.1:5000/factcheck
 ```
+
+Nothing extra needed.
 
 ---
 
-# ▶️ **How to Run the Full System**
+# 📤 Deployment Guide
 
-Start Flask first:
+### Node.js → Render
 
-```sh
-cd flask_factcheck
-venv\Scripts\activate
-python app.py
-```
+* Select *Homepage* folder
+* Build command: `npm install`
+* Start: `node index.js`
 
-Then start Node:
+### Flask → Render (separate service)
 
-```sh
-cd defake
-npm start
-```
-
-Finally open:
-
-👉 **[http://localhost:3000](http://localhost:3000)**
+* Add Python build
+* Start command: `gunicorn app:app`
 
 ---
 
-# 📡 **API Routes**
+# ⭐ Future Enhancements
 
-### **Node.js → Flask Bridge**
-
-```
-POST /factcheck
-{
-  "text": "Your news headline..."
-}
-```
-
-### Flask returns:
-
-```json
-{
-  "prediction": "Real News",
-  "confidence": 82,
-  "fake_probability": 18,
-  "real_probability": 82,
-  "explanation": "Model confidence based on hybrid signals"
-}
-```
-
----
-
-# 🖼 **Screenshots**
-
-(Upload your UI images here)
-
-```
-![Homepage](screenshots/homepage.png)
-![Analysis](screenshots/analysis.png)
-```
-
----
-
-# 🚀 **Deployment Guide**
-
-### Node.js Deployment Options
-
-* Render.com (free)
-* Railway.app
-* Vercel (serverless rewrite needed)
-* AWS EC2 / Lightsail
-
-### Python Flask Deployment
-
-* Render.com (free)
-* Railway
-* AWS EC2
-* PythonAnywhere
-
-⚠️ **You must deploy Flask separately**, then update this Node route:
-
-```js
-const flaskUrl = "https://your-flask-host.com/api/analyze";
-```
+* Add image-based fake-news detection
+* Save user search history
+* Browser extension
+* Multilingual detection
+* Advanced transformer models
 
 ---
 
 # 👨‍💻 Author
 
 **Ekamjot Singh**
-Developer | Cloud & Python Developer
-GitHub: [ekam145](https://github.com/ekam145)
+Cloud + Python + Backend Developer
+
+
 
 
