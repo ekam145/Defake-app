@@ -30,14 +30,14 @@ Users can paste news text or URLs, and the system returns:
 
 Paste article text → click *Check* → get AI verification.
 
-![Home][https://github.com/ekam145/Defake-app/blob/main/Screenshot%202025-12-02%20002103.png]
+![Home]([https://github.com/ekam145/Defake-app/blob/main/Screenshot%202025-12-02%20002103.png))
 ---
 
 ### 📊 Detection Result – Confidence Score Breakdown
 
 Real-time score + Fake/Real probabilities.
 
-![Result][https://github.com/ekam145/Defake-app/blob/main/Screenshot%202025-12-02%20002103.png]
+![Result]([https://github.com/ekam145/Defake-app/blob/main/Screenshot%202025-12-02%20002103.png))
 
 ---
 
