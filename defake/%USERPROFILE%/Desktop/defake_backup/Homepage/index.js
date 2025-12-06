@@ -12,13 +12,15 @@ const app = express();
 const saltRounds = 10;
 
 // ================= DATABASE CONNECTION =================
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "secrets",
-  password: "1234",
-  port: 5432,
+const { Client } = pg;
+
+const db = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // required by Render’s managed Postgres
+  },
 });
+
 
 try {
   await db.connect();
@@ -143,10 +145,10 @@ app.post("/factcheck", async (req, res) => {
   }
 
   try {
-    const flaskUrl = "http://127.0.0.1:5000/api/analyze";
+    const FLASK_URL = process.env.FACTCHECK_API_URL || "http://localhost:5000/api/analyze";
     console.log("🔁 Sending request to Flask:", flaskUrl);
 
-    const flaskResponse = await axios.post(flaskUrl, { text });
+    const flaskResponse = await axios.post(FLASK_URL, { text });
     console.log("✅ Flask responded:", flaskResponse.data);
 
     return res.json(flaskResponse.data);
@@ -170,7 +172,8 @@ app.post("/factcheck", async (req, res) => {
 
 
 // ================= SERVER START =================
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Node server running on http://localhost:${PORT}`);
+  console.log(`🚀 Node server running on port ${PORT}`);
 });
+
